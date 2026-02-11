@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasaka Rievan Smit | Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        .serif { font-family: 'Cormorant Garamond', serif; }
+        body { font-family: 'Inter', sans-serif; background-color: black; color: white; }
+        .parallax {
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .swiper-pagination-bullet { background: white !important; }
+        .text-blue-firm { color: #2c3e50; }
+        .bg-blue-firm { background-color: #2c3e50; }
+
+        /* Pastikan posisi background fixed untuk efek paralaks manual yang lebih kuat */
+        .parallax-bg {
+            background-attachment: fixed; /* Support untuk Desktop */
+            will-change: transform;
+        }
+
+        /* CSS Khusus untuk memastikan gambar tampil penuh dan halus */
+            .parallax-enhanced {
+                background-attachment: fixed;
+                background-position: center center; /* Pastikan gambar ambil titik tengah */
+                background-repeat: no-repeat;
+                background-size: cover; /* Paksa gambar menutupi seluruh area */
+                height: 100%;
+                width: 100%;
+                will-change: transform; /* Optimasi performa browser */
+            }
+
+            /* Perbaikan untuk Mobile: Fixed background sering bermasalah di iOS */
+            @media (max-width: 768px) {
+                .parallax-enhanced {
+                    background-attachment: scroll; /* Ubah ke scroll di HP agar tidak nge-bug */
+                    height: 50vh; 
+                }
+            }
+
+        /* Transisi halus saat pindah slide teks */
+        .valueSwiper .swiper-slide {
+            transition: opacity 0.5s ease;
+            opacity: 0 !important;
+        }
+        .valueSwiper .swiper-slide-active {
+            opacity: 1 !important;
+        }
+
+         /* Pastikan container Swiper terlihat */
+        .swiper {
+            width: 100%;
+            height: 600px; /* Beri tinggi pasti pada container luar */
+        }
+
+        .swiper-slide {
+            height: 500px !important; /* Tinggi pasti slide */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Memperbaiki z-index agar teks selalu di depan gambar */
+        .swiper-slide img {
+            z-index: 0;
+        }
+
+        .swiper-pagination-bullet { background: #2c3e50 !important; }
+        .swiper-button-next, .swiper-button-prev { color: #2c3e50 !important; }
+        .swiper-slide { height: auto !important; }
+
+        /* Kontainer utama tetap setinggi layar */
+        .hero-wrapper {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Gambar dibuat lebih tinggi (120%) agar ada ruang untuk bergerak */
+        .parallax-hero-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%; 
+            object-fit: cover;
+            will-change: transform; /* Optimasi hardware acceleration */
+        }
+
+        /* Container Quote */
+        .quote-parallax-wrapper {
+            position: relative;
+            width: 100%;
+            height: 70vh; /* Sesuaikan tinggi sesuai keinginan */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Gambar Quote yang akan bergerak */
+        .parallax-quote-img {
+            position: absolute;
+            top: -20%; /* Posisi awal lebih tinggi */
+            left: 0;
+            width: 100%;
+            height: 140%; /* Tinggi ekstra untuk ruang gerak */
+            object-fit: cover;
+            will-change: transform;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- header -->
+    <!-- <section class="relative h-screen flex items-center justify-center overflow-hidden">
+         <nav class="absolute top-0 w-full p-6 px-8 flex justify-between items-center z-50 transition-all duration-300 ">
+            <a href="index.html">
+                <div class="text-3xl font-extralight tracking-[0.2em] uppercase leading-tight">
+                    <span class="font-extrabold">P</span>asaka <br> 
+                    <span class="font-extrabold">R</span>ievan & <br> 
+                    <span class="font-extrabold">S</span>mith
+                </div>
+            </a>
+            
+            <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light">
+                <a href="about-us.html">
+
+                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">About The Firm</li>
+                </a>
+                <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Our Specialist</li>
+                <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Practical Areas</li>
+                <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Newsroom</li>
+            </ul>
+        </nav>
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 class="w-full h-full object-cover opacity-50" alt="Landscape Indonesia">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 mt-48" data-aos="fade-up">
+            <h1 class="serif text-2xl md:text-6xl lg:text-6xl italic leading-tight">
+                A Comprehensive Range <br> of Legal Services in Indonesia
+            </h1>
+            <div class="mt-12 flex flex-col items-center">
+                <div class="w-[1px] h-20 bg-gradient-to-b from-white to-transparent mb-6 animate-bounce"></div>
+                <p class="uppercase tracking-[0.5em] text-[10px] font-extralight">Scroll to Explore</p>
+            </div>
+        </div>
+    </section> -->
+    <section class="hero-wrapper flex items-center justify-center">
+        <nav class="absolute top-0 w-full p-6 px-8 flex justify-between items-center z-50 transition-all duration-300">
+            <a href="index.html">
+                <div class="text-3xl font-extralight tracking-[0.2em] uppercase leading-tight text-white">
+                    <span class="font-extrabold">P</span>asaka<br> 
+                    <span class="font-extrabold">R</span>ievan<br> 
+                    <span class="font-extrabold">S</span>mith
+                </div>
+            </a>
+            
+            <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light text-white">
+                <a href="index.html">
+                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Home</li>
+                </a>
+                
+                <a href="about-us.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">About The Firm</li></a>
+                
+                <a href="profesionals.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Professionals</li></a>
+                
+                <a href="practice-area.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Practice Areas</li></a>
+                
+                <a href="newsroom.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Newsroom</li></a>
+            </ul>
+        </nav>
+
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1170" 
+                id="heroImage" 
+                class="parallax-hero-img opacity-50" 
+                alt="Landscape Indonesia">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 mt-20" data-aos="fade-up">
+            <h1 class="serif text-4xl md:text-4xl lg:text-5xl italic leading-tight text-white">
+                A Comprehensive Range <br> of Legal Services in Indonesia
+            </h1>
+            <div class="mt-12 flex flex-col items-center">
+                <div class="w-[1px] h-20 bg-gradient-to-b from-white to-transparent mb-6 animate-bounce"></div>
+                <p class="uppercase tracking-[0.5em] text-[10px] font-extralight text-white">Scroll to Explore</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-black py-32 px-8 flex items-center justify-center border-b border-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="serif text-4xl md:text-6xl lg:text-7xl italic leading-tight text-white mb-10">
+                    A Wide Range of Legal Services <br class="hidden md:block"> 
+                    from <span class="text-gray-400">The Professionals of Indonesia</span>
+                </h2>
+            </div>
+
+            <div class="max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="200">
+                <p class="text-gray-400 font-light leading-relaxed text-base md:text-lg">
+                    PASAKA RIEVAN SMIT is a full-service law firm that provides integrated solutions for our clients across all legal areas.
+                </p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="400">
+                <a href="#" class="inline-flex flex-col items-center group">
+                    <span class="text-white text-xs uppercase tracking-[0.4em] font-bold mb-3 transition-colors group-hover:text-blue-firm">
+                        Learn How We Can Help
+                    </span>
+                    <div class="relative w-24 h-[1px] bg-gray-800 overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-firm translate-x-[-100%] group-hover:translate-x-[0%] transition-transform duration-500 ease-in-out"></div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+    <!-- <section class="bg-black py-20 overflow-hidden">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide relative h-[600px] flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                    <div class="absolute inset-0 bg-black/40"></div>
+                    <div class="relative z-10 text-center max-w-3xl px-6">
+                        <span class="text-blue-firm uppercase tracking-widest text-xs font-bold mb-4 block">Our Values</span>
+                        <h3 class="serif text-5xl md:text-7xl text-white italic mb-6">Reliability</h3>
+                        <p class="text-gray-300 text-lg font-light leading-relaxed mb-8">
+                            You can trust us to take care of your legal affairs. We provide unreserved services for our clients.
+                        </p>
+                        <div class="w-16 h-[2px] bg-white mx-auto"></div>
+                    </div>
+                </div>
+                </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section> -->
+
+    <!-- <section class="relative h-[700px] overflow-hidden bg-black">
+        
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-[120%] absolute -top-[10%] left-0 bg-cover bg-center parallax-bg" 
+                style="background-image: url('https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?q=80&w=2000');">
+            </div>
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+        </div>
+
+        <div class="relative z-10 h-full flex items-center justify-center">
+            <div class="swiper valueSwiper w-full">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide flex flex-col items-center justify-center text-center px-6">
+                        <div class="max-w-4xl" data-aos="fade-up">
+                            <span class="text-blue-firm uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Our Values</span>
+                            <h3 class="serif text-3xl md:text-4xl text-white italic mb-8">Reliability</h3>
+                            <p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+                                You can trust us to take care of your legal affairs. We provide unreserved services for our clients.
+                            </p>
+                            <div class="w-20 h-[1px] bg-white/30 mx-auto"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex flex-col items-center justify-center text-center px-6">
+                        <div class="max-w-4xl">
+                            <span class="text-blue-firm uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Our Values</span>
+                            <h3 class="serif text-3xl md:text-4xl text-white italic mb-8">Personalized and <br> Professional Approach</h3>
+                            <p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+                                We tailor our legal strategies to meet the unique needs of each client, ensuring a professional touch in every interaction.
+                            </p>
+                            <div class="w-20 h-[1px] bg-white/30 mx-auto"></div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide flex flex-col items-center justify-center text-center px-6">
+                        <div class="max-w-4xl">
+                            <span class="text-blue-firm uppercase tracking-[0.4em] text-[10px] font-bold mb-6 block">Our Values</span>
+                            <h3 class="serif text-3xl md:text-4xl text-white italic mb-8">Long-Term Relationships</h3>
+                            <p class="text-gray-300 text-lg md:text-xl font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+                                Our commitment goes beyond a single case; we strive to build lasting partnerships based on trust and mutual success.
+                            </p>
+                            <div class="w-20 h-[1px] bg-white/30 mx-auto"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination !bottom-10"></div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- quote -->
+    <!-- <div class="relative w-full h-[70vh] md:h-[85vh] bg-black overflow-hidden flex items-center justify-center">
+    
+        <div class="absolute inset-0 z-0">
+            <div class="w-full h-full parallax-enhanced" 
+                style="background-image: url('https://plus.unsplash.com/premium_photo-1695942301094-472c4dbf9130?q=80&w=2000&auto=format&fit=crop');">
+            </div>
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-[#2c3e50]/30 to-black opacity-90"></div>
+            
+            <div class="absolute inset-0 bg-[radial-gradient(circle,transparent_30%,black_100%)]"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl" data-aos="fade-up">
+            <div class="w-16 h-[1px] bg-[#2c3e50] mx-auto mb-8"></div>
+            <h2 class="serif text-3xl md:text-5xl text-white italic leading-tight opacity-90">
+                "Integrity is doing the right thing, even when no one is watching."
+            </h2>
+            <p class="mt-6 text-[#2c3e50] tracking-[0.5em] text-[10px] font-bold uppercase">The Firm's Core Philosophy</p>
+        </div>
+    </div> -->
+
+    <div class="quote-parallax-wrapper bg-black">
+    
+        <div class="absolute inset-0 z-0">
+            <img src="https://plus.unsplash.com/premium_photo-1695942301094-472c4dbf9130?q=80&w=2000" 
+                id="quoteImage" 
+                class="parallax-quote-img opacity-70" 
+                alt="Philosophy Background">
+            
+            <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+            
+            <div class="absolute inset-0 bg-[#2c3e50]/10"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-6 max-w-4xl" data-aos="fade-up">
+            <div class="w-16 h-[1px] bg-[#2c3e50] mx-auto mb-8"></div>
+            <h2 class="serif text-3xl md:text-5xl text-white italic leading-tight opacity-95">
+                "Integrity is doing the right thing, even when no one is watching."
+            </h2>
+            <p class="mt-6 text-[#2c3e50] tracking-[0.5em] text-[10px] font-bold uppercase">The Firm's Core Philosophy</p>
+        </div>
+    </div>
+
+    <section class="bg-black pt-16 pb-24 px-8">
+        <div class="max-w-7xl mx-auto border-t border-white/10 pt-20">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <div class="lg:col-span-7" data-aos="fade-right">
+                    <h2 class="serif text-4xl md:text-6xl lg:text-7xl italic leading-[1.1] text-white tracking-tight">
+                        Unmatched <span class="text-gray-400">Services,</span><br>
+                        Unmatched <span class="text-gray-400">Excellence</span>
+                    </h2>
+                </div>
+
+                <div class="lg:col-span-5 lg:pt-4" data-aos="fade-left" data-aos-delay="200">
+                    <div class="space-y-8">
+                        <p class="text-gray-400 font-light leading-relaxed text-base md:text-lg">
+                            We are here to guide you in exploring and taking advantage of the economic 
+                            opportunity in Indonesia. The limitless is yours.
+                        </p>
+                        
+                        <div class="pt-2">
+                            <a href="#practice-areas" class="group relative inline-block">
+                                <span class="text-white text-sm font-bold tracking-[0.3em] uppercase transition-colors group-hover:text-blue-firm">
+                                    Explore Our Practice Areas
+                                </span>
+                                <div class="mt-2 w-full h-[1px] bg-gray-800 overflow-hidden">
+                                    <div class="w-full h-full bg-blue-firm translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-in-out"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black py-20 px-4">
+        <div class="flex flex-col md:flex-row h-[500px] md:h-[650px] w-full max-w-7xl mx-auto overflow-hidden rounded-sm group">
+            
+            <div class="relative flex-1 hover:flex-[2.5] transition-all duration-700 ease-in-out overflow-hidden border-r border-white/10 cursor-pointer group/item">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2000" class="absolute inset-0 h-full w-full object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-700" alt="General Corporate">
+                <div class="absolute inset-0 bg-black/60 group-hover/item:bg-black/20 transition-all duration-700"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-end p-8 z-10">
+                    <h3 class="serif text-2xl md:text-3xl text-white italic leading-tight mb-4 transform translate-y-0 md:group-hover/item:-translate-y-4 transition-transform duration-500">
+                        General <br> Corporate
+                    </h3>
+                    <a href="#" class="opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 text-xs uppercase tracking-[0.3em] text-white border-b border-white/30 pb-1 w-fit">Learn More</a>
+                </div>
+            </div>
+
+            <div class="relative flex-1 hover:flex-[2.5] transition-all duration-700 ease-in-out overflow-hidden border-r border-white/10 cursor-pointer group/item">
+                <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=2000" class="absolute inset-0 h-full w-full object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-700" alt="Mergers & Acquisitions">
+                <div class="absolute inset-0 bg-black/60 group-hover/item:bg-black/20 transition-all duration-700"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-end p-8 z-10">
+                    <h3 class="serif text-2xl md:text-3xl text-white italic leading-tight mb-4 transform translate-y-0 md:group-hover/item:-translate-y-4 transition-transform duration-500">
+                        Mergers & <br> Acquisitions
+                    </h3>
+                    <a href="#" class="opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 text-xs uppercase tracking-[0.3em] text-white border-b border-white/30 pb-1 w-fit">Learn More</a>
+                </div>
+            </div>
+
+            <div class="relative flex-1 hover:flex-[2.5] transition-all duration-700 ease-in-out overflow-hidden border-r border-white/10 cursor-pointer group/item">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000" class="absolute inset-0 h-full w-full object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-700" alt="Bankruptcy">
+                <div class="absolute inset-0 bg-black/60 group-hover/item:bg-black/20 transition-all duration-700"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-end p-8 z-10">
+                    <h3 class="serif text-2xl md:text-3xl text-white italic leading-tight mb-4 transform translate-y-0 md:group-hover/item:-translate-y-4 transition-transform duration-500">
+                        Bankruptcy/ <br> Restructuring
+                    </h3>
+                    <a href="#" class="opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 text-xs uppercase tracking-[0.3em] text-white border-b border-white/30 pb-1 w-fit">Learn More</a>
+                </div>
+            </div>
+
+            <div class="relative flex-1 hover:flex-[2.5] transition-all duration-700 ease-in-out overflow-hidden cursor-pointer group/item">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2000" class="absolute inset-0 h-full w-full object-cover grayscale group-hover/item:grayscale-0 group-hover/item:scale-105 transition-all duration-700" alt="Dispute Resolution">
+                <div class="absolute inset-0 bg-black/60 group-hover/item:bg-black/20 transition-all duration-700"></div>
+                
+                <div class="absolute inset-0 flex flex-col justify-end p-8 z-10">
+                    <h3 class="serif text-2xl md:text-3xl text-white italic leading-tight mb-4 transform translate-y-0 md:group-hover/item:-translate-y-4 transition-transform duration-500">
+                        Dispute <br> Resolution
+                    </h3>
+                    <a href="#" class="opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 text-xs uppercase tracking-[0.3em] text-white border-b border-white/30 pb-1 w-fit">Learn More</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- gambar berjalan -->
+    <section class="py-24 bg-black overflow-hidden">
+            <div class="max-w-7xl mx-auto px-8 mb-12 flex justify-between items-end">
+                <div class="flex space-x-2">
+                    <button class="swiper-prev-btn border border-gray-800 p-4 hover:bg-[#2c3e50] transition-all text-white group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+                    </button>
+                    
+                </div> 
+                <div class="flex space-x-2">
+                    
+                    <button class="swiper-next-btn border border-gray-800 p-4 hover:bg-[#2c3e50] transition-all text-white group">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="swiper mySwiper !px-0">
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide relative h-[200px] md:h-[200px] bg-gray-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1521737852567-6949f3f9f2b5?q=80&w=1147&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-10"></div>
+                        
+                        <div class="absolute inset-0 flex items-center z-20 px-8 md:px-24">
+                            <div class="max-w-3xl" data-aos="fade-up">
+                                
+                                <h3 class="serif text-4xl md:text-6xl text-white mb-6">Personalized and Professional Approach</h3>
+                                <p class="text-gray-300 text-lg leading-relaxed mb-8 font-light">
+                                    Tailoring our legal strategies to meet the unique needs of every client with the highest level of professionalism.
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide relative h-[600px] md:h-[700px] bg-gray-900 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2000" class="absolute inset-0 w-full h-full object-cover opacity-40">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent z-10"></div>
+                        
+                        <div class="absolute inset-0 flex items-center z-20 px-8 md:px-24">
+                            <div class="max-w-3xl">
+                                
+                                <h3 class="serif text-4xl md:text-6xl text-white mb-6">Commitment to Long-Term Relationships</h3>
+                                <p class="text-gray-300 text-lg leading-relaxed mb-8 font-light">
+                                    We don't just provide one-time solutions; we aim to be your trusted legal partner for years to come.
+                                </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+    </section>
+
+    <section class="bg-black py-32 px-8 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div class="order-2 md:order-1" data-aos="fade-up">
+                <form class="grid grid-cols-2 gap-6">
+                    <input type="text" placeholder="First Name" class="bg-transparent border-b border-gray-800 py-4 text-sm focus:border-blue-firm outline-none">
+                    <input type="text" placeholder="Last Name" class="bg-transparent border-b border-gray-800 py-4 text-sm focus:border-blue-firm outline-none">
+                    <input type="email" placeholder="Email" class="bg-transparent border-b border-gray-800 py-4 text-sm focus:border-blue-firm outline-none col-span-2">
+                    <textarea placeholder="Message" rows="4" class="bg-transparent border-b border-gray-800 py-4 text-sm focus:border-blue-firm outline-none col-span-2"></textarea>
+                    <button class="col-span-2 text-left text-xs uppercase tracking-[0.4em] font-bold mt-8 hover:text-blue-firm transition-colors">Submit Request —</button>
+                </form>
+            </div>
+
+            <div class="order-1 md:order-2" data-aos="fade-left">
+                <h2 class="serif text-4xl md:text-5xl lg:text-6xl italic leading-tight">
+                    We are a full-service law firm with <span class="text-gray-500">long-held and deep-seated</span> expertise in the industry.
+                </h2>
+                <p class="mt-8 text-blue-firm font-bold text-xs uppercase tracking-[0.3em]">Let's have a talk!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-black py-32 px-8 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="flex justify-between items-end mb-16" data-aos="fade-up">
+                <div>
+                    <h2 class="serif text-5xl md:text-6xl text-white italic">Latest News</h2>
+                    <div class="w-20 h-[1px] bg-blue-firm mt-6"></div>
+                </div>
+                <a href="newsroom.html" class="text-xs uppercase tracking-[0.3em] text-gray-400 hover:text-white border-b border-gray-800 pb-1 transition-all">
+                    Visit our Newsroom —
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="overflow-hidden bg-gray-900 aspect-[16/10] mb-6">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000" 
+                            class="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                            alt="Legal Insight 1">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-blue-firm text-[10px] font-bold uppercase tracking-[0.4em]">Market Update • Feb 2026</span>
+                        <h3 class="serif text-xl md:text-2xl text-white leading-snug group-hover:text-blue-firm transition-colors duration-300">
+                            Heightened Spectre of Corporate Criminal Liability Under Indonesian Law
+                        </h3>
+                        <p class="text-gray-500 text-sm font-light line-clamp-2">
+                            Exploring the new regulatory framework and its implications for multinational corporations operating in Indonesia.
+                        </p>
+                        
+                        <a href="detail-newsroom.html">
+                            <span class="inline-block text-white text-[10px] uppercase tracking-widest border-b border-white/20 pb-1 group-hover:border-white transition-all">Read More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="overflow-hidden bg-gray-900 aspect-[16/10] mb-6">
+                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000" 
+                            class="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                            alt="Legal Insight 2">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-blue-firm text-[10px] font-bold uppercase tracking-[0.4em]">Publication • Jan 2026</span>
+                        <h3 class="serif text-xl md:text-2xl text-white leading-snug group-hover:text-blue-firm transition-colors duration-300">
+                            Lexology Panoramic Publishes the 2026 "Guide to Private M&A in Indonesia"
+                        </h3>
+                        <p class="text-gray-500 text-sm font-light line-clamp-2">
+                            Our firm is proud to contribute to the latest comprehensive guide on Indonesian Mergers and Acquisitions.
+                        </p>
+                        
+                        <a href="detail-newsroom.html">
+                            <span class="inline-block text-white text-[10px] uppercase tracking-widest border-b border-white/20 pb-1 group-hover:border-white transition-all">Read More</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="overflow-hidden bg-gray-900 aspect-[16/10] mb-6">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000" 
+                            class="w-full h-full object-cover opacity-80 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                            alt="Legal Insight 3">
+                    </div>
+                    <div class="space-y-4">
+                        <span class="text-blue-firm text-[10px] font-bold uppercase tracking-[0.4em]">Regulation • Dec 2025</span>
+                        <h3 class="serif text-xl md:text-2xl text-white leading-snug group-hover:text-blue-firm transition-colors duration-300">
+                            Indonesia Eases Market Entry for FDI Companies under BKPM Regulation
+                        </h3>
+                        <p class="text-gray-500 text-sm font-light line-clamp-2">
+                            A detailed analysis of the simplified licensing process for foreign direct investment in the tech sector.
+                        </p>
+                        
+                        <a href="detail-newsroom.html">
+                            <span class="inline-block text-white text-[10px] uppercase tracking-widest border-b border-white/20 pb-1 group-hover:border-white transition-all">Read More</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-black py-20 px-8 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div>
+                <h4 class="font-bold tracking-[0.3em] text-lg leading-tight uppercase">Pasaka<br>Rievan <br>Smit</h4>
+            </div>
+            <div class="text-right">
+                <p class="uppercase tracking-widest text-[10px] font-bold mb-4">Our Office</p>
+                <p class="text-gray-500 text-sm leading-relaxed">
+                    Mayapada Tower I Lantai 11 unit 02A<br>
+                    Jl. Jend Sudirman Kav. 28, Jakarta Selatan<br>
+                    Indonesia
+                </p>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        window.addEventListener('scroll', function() {
+            // --- Logic untuk Header (Tetap ada) ---
+            const heroImage = document.getElementById('heroImage');
+            let scrollPosition = window.pageYOffset;
+            if (heroImage) {
+                heroImage.style.transform = `translate3d(0, ${scrollPosition * 0.4}px, 0)`;
+            }
+
+            // --- Logic untuk Quote (Smart Parallax) ---
+            const quoteImage = document.getElementById('quoteImage');
+            if (quoteImage) {
+                const parentSection = quoteImage.closest('.quote-parallax-wrapper');
+                const rect = parentSection.getBoundingClientRect();
+                const viewHeight = window.innerHeight;
+
+                // Hanya proses jika section masuk dalam jangkauan layar
+                if (rect.top <= viewHeight && rect.bottom >= 0) {
+                    // Menghitung seberapa jauh section telah melewati layar
+                    // Menggunakan rect.top agar pergerakan dimulai tepat saat section muncul
+                    const speed = 0.15; // Sesuaikan untuk intensitas paralaks
+                    const yOffset = rect.top * speed;
+                    
+                    quoteImage.style.transform = `translate3d(0, ${yOffset}px, 0)`;
+                }
+            }
+        });
+        
+        // Simple Parallax Effect
+        
+        const swiper = new Swiper('.mySwiper', {
+            loop: true,
+            speed: 1500,
+            autoplay: { delay: 5000 },
+            pagination: { el: '.swiper-pagination', clickable: true },
+        });
+        // 1. Inisialisasi Swiper untuk Teks (Value Swiper)
+        const valueSwiper = new Swiper('.valueSwiper', {
+            loop: true,
+            speed: 1000,
+            effect: 'fade', // Menggunakan efek fade agar teks lebih elegan saat berganti
+            fadeEffect: {
+                crossFade: true
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // 2. Script Paralaks Manual (Lebih Stabil)
+        window.addEventListener('scroll', function() {
+            const parallax = document.querySelector('.parallax-bg');
+            let scrollPosition = window.pageYOffset;
+            
+            // Angka 0.5 menentukan kecepatan gerak gambar (makin kecil makin lambat)
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrollPosition * 0.2}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
