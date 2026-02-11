@@ -119,51 +119,9 @@
 
     </style>
 <body class="overflow-x-hidden">
-    <!-- <header class="relative h-screen flex items-center justify-center parallax overflow-hidden" 
-            style="background-image: url('https://images.unsplash.com/photo-1505547828843-176834e42154?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-        
-        <div class="absolute inset-0 header-scrim"></div>
-        
-        <nav class="absolute top-0 w-full p-6 px-8 flex justify-between items-center z-50 transition-all duration-300 ">
-            <a href="index.html">
+    
 
-                <div class="text-3xl font-extralight tracking-[0.2em] uppercase leading-tight">
-                    <span class="font-extrabold">P</span>asaka<br> 
-                    <span class="font-extrabold">R</span>ievan<br> 
-                    <span class="font-extrabold">S</span>mith
-                </div>
-            </a>
-            
-            <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light">
-                <a href="about-us.html">
-                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">About The Firm</li>
-                </a>
-                <a href="profesionals.html">
-                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Our Specialist</li>
-                </a>
-                
-                <a href="practice-area.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Practical Areas</li></a>
-                
-                <a href="newsroom.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Newsroom</li></a>
-            </ul>
-        </nav>
-
-        <div class="relative z-10 text-center px-4" data-aos="zoom-out" data-aos-duration="1500">
-            <h1 class="text-6xl md:text-6xl serif mb-6 tracking-tight">About The Firm</h1>
-            <div class="w-24 h-[1px] bg-[#2c3e50] mx-auto mb-6"></div>
-            <p class="max-w-2xl mx-auto text-gray-300 italic text-lg font-light leading-relaxed">
-                "We pride ourselves on having in-depth knowledge about current issues, <br class="hidden md:block"> 
-                while keeping our vision flat to the ground."
-            </p>
-        </div>
-
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-            <div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
-        </div>
-    </header> -->
-
-    <header class="relative h-[70vh] flex items-end overflow-hidden parallax"
-        >
+    <header class="relative h-[70vh] flex items-end overflow-hidden parallax">
         
         <div class="absolute inset-0 z-0">
             <img src="https://images.unsplash.com/photo-1505547828843-176834e42154?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
@@ -173,30 +131,44 @@
             <div class="absolute inset-0 header-scrim"></div>
         </div>
 
-        <nav class="absolute top-0 w-full p-6 px-8 flex justify-between items-center z-50 transition-all duration-300 ">
-            <a href="index.html">
-
-                <div class="text-3xl font-extralight tracking-[0.2em] uppercase leading-tight">
+        <nav class="absolute top-0 w-full p-6 px-8 flex justify-between items-center z-50 transition-all duration-300">
+            <a href="index.html" class="z-[60]">
+                <div class="text-2xl md:text-3xl font-extralight tracking-[0.2em] uppercase leading-tight text-white">
                     <span class="font-extrabold">P</span>asaka<br> 
                     <span class="font-extrabold">R</span>ievan<br> 
                     <span class="font-extrabold">S</span>mith
                 </div>
             </a>
             
-            <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light">
-                <a href="index.html">
-                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Home</li>
-                </a>
-                <a href="about-us.html">
-                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">About The Firm</li>
-                </a>
-                <a href="profesionals.html">
-                    <li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Professionals</li>
-                </a>
-                <a href="practice-area.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Practice Areas</li></a>
-                
+            <ul class="hidden md:flex space-x-10 text-[10px] uppercase tracking-[0.3em] font-light text-white">
+                <a href="index.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Home</li></a>
+                <a href="about-us.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">About</li></a>
+                <a href="profesionals.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Professionals</li></a>
+                <a href="practice-area.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Practices</li></a>
                 <a href="newsroom.html"><li class="nav-link pb-1 cursor-pointer hover:text-blue-200 transition-colors">Newsroom</li></a>
             </ul>
+
+            <button id="menuBtn" class="md:hidden z-[60] flex flex-col justify-between h-5 w-6 outline-none">
+                <span class="block h-0.5 w-full bg-white transition-all duration-300 origin-left" id="line1"></span>
+                <span class="block h-0.5 w-full bg-white transition-all duration-300" id="line2"></span>
+                <span class="block h-0.5 w-full bg-white transition-all duration-300 origin-left" id="line3"></span>
+            </button>
+
+            <div id="mobileMenu" class="fixed inset-0 bg-[#000] z-[55] flex flex-col items-center justify-center translate-x-full transition-transform duration-500 ease-in-out">
+                <ul class="flex flex-col space-y-8 text-center text-sm uppercase tracking-[0.4em] font-light text-white">
+                    <a href="index.html" class="hover:text-blue-200 transition-colors">Home</a>
+                    <a href="about-us.html" class="hover:text-blue-200 transition-colors">About The Firm</a>
+                    <a href="profesionals.html" class="hover:text-blue-200 transition-colors">Professionals</a>
+                    <a href="practice-area.html" class="hover:text-blue-200 transition-colors">Practice Areas</a>
+                    <a href="newsroom.html" class="hover:text-blue-200 transition-colors">Newsroom</a>
+                </ul>
+                
+                <div class="absolute bottom-12 flex space-x-6">
+                    <div class="h-[1px] w-8 bg-white/20 self-center"></div>
+                    <p class="text-[9px] text-gray-500 tracking-widest uppercase">PRS Law Firm</p>
+                    <div class="h-[1px] w-8 bg-white/20 self-center"></div>
+                </div>
+            </div>
         </nav>
 
         <div class="relative z-10 w-full max-w-7xl mx-auto px-8 pb-12">
@@ -600,6 +572,42 @@
                     prevEl: ".swiper-prev-btn",
                 },
             });
+        });
+
+        // Mobile Menu Toggle with Hamburger Animation
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const line1 = document.getElementById('line1');
+        const line2 = document.getElementById('line2');
+        const line3 = document.getElementById('line3');
+        let isMenuOpen = false;
+
+        menuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // Animasi Hamburger ke 'X'
+                line1.classList.add('rotate-45', 'translate-x-[2px]', 'translate-y-[-1px]');
+                line2.classList.add('opacity-0');
+                line3.classList.add('-rotate-45', 'translate-x-[2px]', 'translate-y-[1px]');
+                
+                // Tampilkan Menu
+                mobileMenu.classList.remove('translate-x-full');
+                
+                // Kunci scroll body
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Kembalikan Hamburger
+                line1.classList.remove('rotate-45', 'translate-x-[2px]', 'translate-y-[-1px]');
+                line2.classList.remove('opacity-0');
+                line3.classList.remove('-rotate-45', 'translate-x-[2px]', 'translate-y-[1px]');
+                
+                // Sembunyikan Menu
+                mobileMenu.classList.add('translate-x-full');
+                
+                // Buka scroll body
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
