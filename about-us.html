@@ -571,14 +571,16 @@
         });
 
         // 3. Simple Parallax Effect untuk Image
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax');
-            
-            parallaxElements.forEach(el => {
-                const speed = 0.5;
-                el.style.backgroundPositionY = -(scrolled * speed) + 'px';
-            });
+
+        // 3. Simple Parallax Effect untuk Image
+        window.addEventListener('scroll', function() {
+            const bg = document.getElementById('parallax-bg');
+            if (bg) {
+                let offset = window.pageYOffset;
+                // Angka 0.3 menentukan kecepatan paralaks. 
+                // translate3d(0, Y, 0) membuat gerakan sangat smooth di semua browser.
+                bg.style.transform = 'translate3d(0, ' + (offset * 0.3) + 'px, 0)';
+            }
         });
 
         // Inisialisasi harus dipanggil setelah DOM siap
